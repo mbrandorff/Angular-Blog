@@ -1,0 +1,20 @@
+<h2>Home</h2>
+
+<p class="status good" ng-show-auth="login">Hello! You are logged in.</p>
+<p class="status" ng-show-auth="logout">Not logged in</p>
+<p class="status error" ng-show-auth="error">{{auth.error}}</p>
+
+<input ng-model="syncedValue" type="text" /> <b>{{syncedValue}}</b><br>
+
+<div>
+	<input type="text" ng-model="blog.title" placeholder="Title" class="input-xxlarge" required/>
+	<textarea ng-model="blog.body" placeholder="Blog Entry" class="input-xxlarge" rows="10" required></textarea>
+</div>
+
+<div class="span6 well markdown-well" style="vertical-align:top">
+	<h3>{{blog.title}}</h3>
+	<div ng-bind-html="markdown"></div>
+</div>
+
+<p>Open <a href="{{FBURL}}/syncedValue">Forge</a> or a <a target="_blank" href="index.html">new window</a> to see this input update in real time:</p>
+

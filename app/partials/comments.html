@@ -1,0 +1,15 @@
+<h2>Kommentare</h2>
+
+<form>
+  <input placeholder="Kommentar..." ng-model="newComment">
+  <button type="submit" ng-click="addComment()">send</button>
+</form>
+
+<ul id="comments" ng-show="comments">
+    <li ng-repeat="comment in comments | orderByPriority">{{comment.text}}</li>
+</ul>
+
+<p>
+  Running the 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p>
