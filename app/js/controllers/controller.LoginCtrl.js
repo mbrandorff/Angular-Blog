@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controller.LoginCtrl', [])
+angular.module('Blog.controller.LoginCtrl', [])
   .controller('LoginCtrl', ['$scope', 'loginService', '$location', function($scope, loginService, $location) {
     $scope.email = null;
     $scope.pass = null;

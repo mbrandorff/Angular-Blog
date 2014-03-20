@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp.config', ['ngRoute'])
+angular.module('Blog.config', ['ngRoute'])
 
    // version of this seed app is compatible with angularFire 0.6
    // see tags for other versions: https://github.com/firebase/angularFire-seed/tags
@@ -21,9 +21,26 @@ angular.module('myApp.config', ['ngRoute'])
          controller: 'HomeCtrl'
       });
 
-      $routeProvider.when('/comments', {
-         templateUrl: 'partials/comments.html',
-         controller: 'CommentsCtrl'
+      $routeProvider.when('/create', {
+         templateUrl: 'partials/create.html',
+         controller: 'CreateCtrl'
+      });
+
+      $routeProvider.when('/articles', {
+         templateUrl: 'partials/list.html',
+         controller: 'ViewCtrl'
+      });
+      $routeProvider.when('/articles/:slug', {
+         templateUrl: 'partials/view.html',
+         controller: 'ViewCtrl'
+      });
+
+      $routeProvider.when('/edit', {
+         redirectTo: '/articles'
+      });
+      $routeProvider.when('/edit/:slug', {
+         templateUrl: 'partials/edit.html',
+         controller: 'EditCtrl'
       });
 
       $routeProvider.when('/account', {

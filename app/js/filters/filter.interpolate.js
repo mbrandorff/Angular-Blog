@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.filter.interpolate', [])
+angular.module('Blog.filter.interpolate', [])
    .filter('interpolate', ['version', function(version) {
       return function(text) {
          return String(text).replace(/\%VERSION\%/mg, version);

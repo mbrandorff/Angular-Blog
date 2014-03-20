@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controller.AccountCtrl', [])
+angular.module('Blog.controller.AccountCtrl', [])
   .controller('AccountCtrl', ['$scope', 'loginService', 'syncData', '$location', function($scope, loginService, syncData, $location) {
     syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
 

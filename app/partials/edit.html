@@ -1,0 +1,13 @@
+<h2>Artikel bearbeiten</h2>
+<div class="editor">
+	<h3>{{ article.title }}</h3>
+	<form name="form" class="markdown-raw" ng-submit="submit()">
+		<textarea ng-model="article.input" placeholder="Blog Entry" required></textarea>
+		<input type="submit" ng-disabled="form.$invalid">
+	</form>
+
+	<div class="markdown-preview">
+		<h1 class="title">{{article.title}}</h1>
+		<div class="content" ng-bind-html="preview"></div>
+	</div>
+</div>

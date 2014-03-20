@@ -1,22 +1,28 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp',[
-      'myApp.config',
+angular.module('Blog',[
+      'Blog.config',
 
-      'myApp.controller.HomeCtrl',
-      'myApp.controller.CommentsCtrl',
-      'myApp.controller.LoginCtrl',
-      'myApp.controller.AccountCtrl',
+      'Blog.controller.HeaderCtrl',
+      'Blog.controller.HomeCtrl',
+      'Blog.controller.LoginCtrl',
+      'Blog.controller.AccountCtrl',
+      'Blog.controller.ViewCtrl',
+      'Blog.controller.CreateCtrl',
+      'Blog.controller.EditCtrl',
 
-      'myApp.directive.appVersion',
-      'myApp.directive.navigation',
+      'Blog.directive.appVersion',
+      'Blog.directive.navigation',
 
-      'myApp.filter.interpolate',
+      'Blog.filter.interpolate',
 
-      'myApp.service.firebase',
-      'myApp.service.login',
-      'myApp.service.markdown',
+      'Blog.service.firebase',
+      'Blog.service.login',
+      'Blog.service.markdown',
+      'Blog.service.object2Array',
+      'Blog.service.date',
+      'Blog.service.checkIfArticleExists',
 
       'waitForAuth',
       'routeSecurity'

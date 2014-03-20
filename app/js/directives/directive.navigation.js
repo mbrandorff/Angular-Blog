@@ -1,14 +1,17 @@
 'use strict';
 
-angular.module('myApp.directive.navigation', [])
+angular.module('Blog.directive.navigation', [])
   .directive('navigation', function() {
     var naventries = [
     {
       name: "Home",
       link: "/"
     },{
-      name: "Kommentare",
-      link: "/comments"
+      name: "Artikel",
+      link: "/articles"
+    },{
+      name: "Erstellen",
+      link: "/create"
     },{
       name: "Login",
       link: "/login",

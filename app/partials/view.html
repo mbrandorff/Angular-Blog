@@ -1,0 +1,8 @@
+<div class="article cf">
+	<h1>{{ currentArticle.title }}</h1>
+	<div class="content" ng-bind-html="currentArticle.safeHtml"></div>
+	<div class="controls">
+		<a href="#/edit/{{ currentArticle.slug }}" ng-show="currentArticle.user_id == auth.user.id">bearbeiten</a>
+		<a href="#/" ng-click="deleteArticle(currentArticle.title)" ng-show="currentArticle.user_id == auth.user.id">l&ouml;schen</a>
+	</div>
+</div>
