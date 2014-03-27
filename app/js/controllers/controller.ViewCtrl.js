@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('Blog.controller.ViewCtrl', [])
-.controller('ViewCtrl', ['$scope', '$routeParams', 'firebaseRef', '$sce', function($scope, $routeParams, firebaseRef, $sce) {
-
-  $scope.slug = $routeParams.slug;
+.controller('ViewCtrl', ['$scope', '$routeParams', '$location', 'firebaseRef', '$sce', function($scope, $routeParams, $location, firebaseRef, $sce) {
 
   var dataRef = firebaseRef('articles');
 
@@ -24,38 +22,9 @@ angular.module('Blog.controller.ViewCtrl', [])
   var getArticles = function() {
     dataRef.once('value', function(snapshot) {
       $scope.articles = snapshot.val();
-      var name = ($scope.slug) ? camelCase($scope.slug) : 'undefined';
-      $scope.name = name;
-      $scope.currentArticle = $scope.articles[name];
-      if($scope.currentArticle) {
-        $scope.currentArticle.safeHtml = $sce.trustAsHtml($scope.currentArticle.content);
-      }
       $scope.$apply();
     });
   };
   
   getArticles();
-
-  $scope.deleteArticle = function(article) {
-    console.log(article);
-    var child = camelCase(article);
-    console.log(child);
-
-    var x = confirm('Artikel wirklich löschen?');
-
-    if(x == true) {
-      dataRef.child(child).remove(function(error) {
-        if (error) {
-          console.log('Deletion failed.');
-          console.log(error);
-        }
-        else {
-          console.log('Deletion succeeded.');
-        }
-      });
-    }
-    else {
-      console.log('Deletion aborted!')
-    }
-  };
 }]);

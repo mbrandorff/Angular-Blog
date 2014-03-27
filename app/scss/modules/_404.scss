@@ -1,0 +1,105 @@
+$color-base: #404853;
+
+.notfound {
+  text-align: center;
+
+  h1 {
+    margin: 0;
+
+    text-shadow: 0 2px 0px $color-base, 0 4px 0px #333;
+    color: #f54f59;
+    font-size: 6em;
+    font-weight: 700;
+  }
+
+  h2 {
+    color: #aaa;
+    font-family: monospace;
+    font-size: 0.95em;
+    font-weight: 300;
+  }
+
+  svg#robot {
+    //border: 1px solid;
+    display: block;
+    position: relative;
+    padding: 1em;
+    margin: 0 auto;
+    transform-origin: bottom center;
+    animation: move 2s ease infinite;
+  }
+
+  g#head {
+    transform: rotate(0deg) translate3d(0px,0px,0px);
+    transform-origin: bottom center;
+    animation: head 1s 1s ease infinite;
+    #leftAntenna, #rightAntenna {
+      > ellipse {
+        animation: color 350ms linear infinite;
+      }
+    }
+  }
+
+  #upperTorso {
+    transform: rotate(0deg);
+    transform-origin: center;
+    animation: torso 600ms 1s ease infinite;
+    #leftArm {
+      transform: rotate(0deg);
+      transform-origin: 80% 5%;
+      animation: left 1s ease infinite;
+      .forearm {
+        transform: rotate(0deg);
+        transform-origin: 68% 10%;
+        animation: forearm 800ms 1s ease infinite;
+      }
+    }
+    #rightArm {
+      transform: rotate(0deg);
+      transform-origin: 18% 0%;
+      animation: right 1s ease infinite;
+      .forearm {
+        transform: rotate(0deg);
+        transform-origin: 68% 10%;
+        animation: forearm 700ms 1s ease infinite;
+      }
+    }
+  }
+
+  #lowerTrunk {
+    transform: rotate(0deg);
+    transform-origin: 60% 5%;
+    animation: lowerTrunk 1s ease infinite;
+  }
+
+  #leftFoot {
+    transform: rotate(0deg);
+    transform-origin: 60% 5%;
+    animation: leftFoot 2s ease infinite;
+    > .lowerLeg {
+      transform: rotate(0deg);
+      transform-origin: 68% 10%;
+      animation: lowerLeg 2s ease infinite;
+    }
+  }
+
+  #rightFoot {
+    transform: rotate(0deg);
+    transform-origin: 50% 5%;
+    animation: rightFoot 2s ease infinite;
+    > .lowerLeg {
+      transform: rotate(0deg);
+      transform-origin: 68% 10%;
+      animation: lowerLegIz 2s ease infinite;
+    }
+  }
+}
+
+@keyframes color {
+  0%, 100% {
+    fill: #ccc;
+  }
+  50% {
+    fill: rgb(255,0,0);
+  }
+}

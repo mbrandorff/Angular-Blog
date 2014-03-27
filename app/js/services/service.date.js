@@ -11,7 +11,7 @@ angular.module('Blog.service.date', [])
 
     return function() {
       var now = new Date();
-      var result = now.getFullYear() + '/' + twoDigits(now.getMonth() + 1) + '/' + twoDigits(now.getDate()) + ' ' + twoDigits(now.getHours()) + ':' + twoDigits(now.getMinutes()) + ':' + twoDigits(now.getSeconds());
+      var result = now.getFullYear() + '/' + twoDigits(now.getMonth() + 1) + '/' + twoDigits(now.getDate());
       return result;
     }
   })
@@ -27,7 +27,7 @@ angular.module('Blog.service.date', [])
     
     return function() {
       var now = new Date();
-      var result = twoDigits(now.getDate()) + '/' + twoDigits(now.getMonth() + 1) + '/' + now.getFullYear() + ' ' + twoDigits(now.getHours()) + ':' + twoDigits(now.getMinutes());
+      var result = twoDigits(now.getDate()) + '/' + twoDigits(now.getMonth() + 1) + '/' + now.getFullYear();
       return result;
     }
   })

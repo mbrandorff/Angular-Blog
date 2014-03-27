@@ -3,6 +3,7 @@
 angular.module('Blog.controller.EditCtrl', [])
 .controller('EditCtrl', [
   '$scope',
+  '$location',
   'markdownHtml',
   '$sce',
   'FBURL',
@@ -10,9 +11,10 @@ angular.module('Blog.controller.EditCtrl', [])
   'currentDate',
   'dateFormatted',
   '$routeParams',
-  function($scope, markdownHtml, $sce, FBURL, checkIfArticleExists, currentDate, dateFormatted, $routeParams) {
+  function($scope, $location, markdownHtml, $sce, FBURL, checkIfArticleExists, currentDate, dateFormatted, $routeParams) {
 
   $scope.slug = $routeParams.slug;
+  $scope.article = {};
 
   var articlesRef = new Firebase(FBURL + '/articles');
 
@@ -47,14 +49,8 @@ angular.module('Blog.controller.EditCtrl', [])
 
   getArticle();
 
-
-  $scope.article = {
-    input: "Start writing an article!"
-  };
-
   $scope.$watch('article.input', function(data){
     markdownHtml(data, "html");
-    $scope.article.content = (output) ? output : '';
     $scope.preview = (output) ? $sce.trustAsHtml(output) : '';
   })
 
@@ -62,20 +58,31 @@ angular.module('Blog.controller.EditCtrl', [])
   $scope.submit = function() {
 
     var name = camelCase($scope.article.title);
-    $scope.article.user_id = ($scope.auth.user) ? $scope.auth.user.id : null;
+    $scope.article.id = ($scope.auth.user) ? $scope.auth.user.id : null;
+    $scope.processing = true;
 
     checkIfArticleExists(articlesRef, name, function(articleName, exists){
       if(!exists) {
-        alert('Artikel existiert noch nicht.');
+        $scope.err = 'Error: Artikel existiert noch nicht oder nicht mehr';
+        $scope.$apply(function(){
+          $scope.processing = false;
+        });
       }
       else {
         $scope.article.edited = dateFormatted();
 
         articlesRef.child(articleName).update($scope.article, function(error){
           if(error) {
+            $scope.$apply(function(){
+              $scope.processing = false;
+            });
+            $scope.err = 'Error: Artikel konnte nicht erstellt werden';
             console.log(error);
-          } else {
-            console.log('Article successfully updated');
+          }
+          else {
+            $scope.$apply(function(){
+              $location.path("/articles/" + $scope.article.slug);
+            });
           }
         });
       }

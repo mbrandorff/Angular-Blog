@@ -16,6 +16,11 @@ angular.module('Blog.config', ['ngRoute'])
    // configure views; the authRequired parameter is used for specifying pages
    // which should only be available while logged in
    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.when('/', {
+         templateUrl: 'partials/home.html',
+         controller: 'HomeCtrl'
+      });
+
       $routeProvider.when('/home', {
          templateUrl: 'partials/home.html',
          controller: 'HomeCtrl'
@@ -32,7 +37,7 @@ angular.module('Blog.config', ['ngRoute'])
       });
       $routeProvider.when('/articles/:slug', {
          templateUrl: 'partials/view.html',
-         controller: 'ViewCtrl'
+         controller: 'ArticleCtrl'
       });
 
       $routeProvider.when('/edit', {
@@ -54,5 +59,10 @@ angular.module('Blog.config', ['ngRoute'])
          controller: 'LoginCtrl'
       });
 
-      $routeProvider.otherwise({redirectTo: '/home'});
+      $routeProvider.when('/404', {
+         templateUrl: 'partials/404.html',
+         controller: '404Ctrl'
+      });
+
+      $routeProvider.otherwise({redirectTo: '/404'});
    }]);

@@ -1,12 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     [ng-cloak] {
       display: none;
     }
   </style>
+  <title>Blog – Michael Brandorff</title>
+  <link rel="stylesheet" href="css/global.css">
   <script>
     // include angular loader, which allows the files to load in any order
     /*
@@ -33,12 +38,14 @@
         // CDN
         // 'https://cdn.firebase.com/v0/firebase.js',
         // 'https://cdn.firebase.com/v0/firebase-simple-login.js',
-        // 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js'
+        // 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js',
+        // 'http://code.jquery.com/jquery-1.11.0.min.js',
 
         // Local
         'libs/firebase.js',
         'libs/firebase-simple-login.js',
         'libs/angular.min.js'
+        // 'libs/jquery/dist/jquery.min.js'
         
     ], function() {
         $script([
@@ -58,8 +65,10 @@
             'js/controllers/controller.LoginCtrl.js',
             'js/controllers/controller.AccountCtrl.js',
             'js/controllers/controller.ViewCtrl.js',
+            'js/controllers/controller.ArticleCtrl.js',
             'js/controllers/controller.CreateCtrl.js',
             'js/controllers/controller.EditCtrl.js',
+            'js/controllers/controller.404Ctrl.js',
 
             'js/directives/directive.appVersion.js',
             'js/directives/directive.navigation.js',
@@ -83,8 +92,6 @@
         })
     });
   </script>
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/app.css">
 
 </head>
 <body ng-cloak-auth class="hide">
@@ -94,8 +101,12 @@
       <h1>Blog &dash; Michael Brandorff</h1>
       <ul class="menu" navigation></ul>
     </header>
-    <div class="site-content cf" ng-view></div>
-  </div>
 
+    <div class="cf" ng-view></div>
+
+    <footer class="footer">
+      <p>Open <a href="{{FBURL}}">Forge</a></p>
+    </footer>
+  </div>
 </body>
 </html>

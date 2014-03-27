@@ -16,8 +16,10 @@ angular.module('Blog.controller.LoginCtrl', [])
         $scope.err = 'Please enter a password';
       }
       else {
+        $scope.processing = true;
         loginService.login($scope.email, $scope.pass, function(err, user) {
           $scope.err = err? err + '' : null;
+          $scope.processing = false;
           if( !err ) {
             cb && cb(user);
           }

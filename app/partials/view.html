@@ -1,8 +1,32 @@
-<div class="article cf">
-	<h1>{{ currentArticle.title }}</h1>
+<div ng-show="currentArticle" class="site-content article cf">
+	<h1 class="article-heading">{{ currentArticle.title }}</h1>
+	<span class="article-author">Erstellt: {{ currentArticle.created }}</span>
+	<span class="article-author" ng-show="currentArticle.edited">Letztes Update: {{ currentArticle.edited }}</span><br>
+	<span class="article-author">Autor: {{ currentArticle.author }}</span>
 	<div class="content" ng-bind-html="currentArticle.safeHtml"></div>
-	<div class="controls">
-		<a href="#/edit/{{ currentArticle.slug }}" ng-show="currentArticle.user_id == auth.user.id">bearbeiten</a>
-		<a href="#/" ng-click="deleteArticle(currentArticle.title)" ng-show="currentArticle.user_id == auth.user.id">l&ouml;schen</a>
+
+	<div class="article-controls" ng-show="currentArticle.id == auth.user.id">
+		<a href="#/edit/{{ currentArticle.slug }}">bearbeiten</a>
+		<a href="#/" ng-click="deleteArticle(currentArticle.title)">l&ouml;schen</a>
 	</div>
+
+	<!-- KOMMENTARE -->
+	<h2>Kommentare</h2>
+	<ul class="article-comments" ng-show="comments">
+		<li ng-repeat="comment in comments">
+			<div ng-bind-html="comment.content"></div>
+			<div class="article-comments-controls">
+				<button type="button" ng-click="deleteComment(comment)">X</button>
+			</div>
+		</li>
+	</ul>
+	<form class="commentform" ng-submit="addComment()" name="commentform" id="commentform">
+		<textarea class="commentform-content" ng-model="newComment.input" name="commentfield" id="commentfield" cols="30" rows="10" required></textarea>
+		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid">
+		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Kommentar zu schreiben.</div>
+	</form>
+	<div class="commentform-preview" ng-bind-html="preview"></div>
+</div>
+<div ng-hide="currentArticle" class="site-content article">
+	Bitte warten…
 </div>

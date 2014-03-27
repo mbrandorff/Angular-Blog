@@ -1,9 +1,11 @@
-<h2>Artikel bearbeiten</h2>
-<div class="editor">
+<div class="site-content editor">
+	<h2>Artikel bearbeiten</h2>
 	<h3>{{ article.title }}</h3>
 	<form name="form" class="markdown-raw" ng-submit="submit()">
 		<textarea ng-model="article.input" placeholder="Blog Entry" required></textarea>
-		<input type="submit" ng-disabled="form.$invalid">
+		<input type="submit" value="Speichern" ng-disabled="!auth.user.id || form.$invalid">
+		<p ng-show="processing">Bitte warten…</p>
+		<p ng-show="err" class="error">{{err}}</p>
 	</form>
 
 	<div class="markdown-preview">

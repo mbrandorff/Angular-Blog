@@ -1,10 +1,10 @@
-<div class="home">
+<div ng-show="articles" class="site-content home">
 	<article class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | limitTo:5">
 		<h2><a href="#/articles/{{article.slug}}">{{article.title}}</a></h2>
 		<div ng-bind-html="article.preview"></div>
-		<div class="text--big">…</div>
+		<div class="text--big"><a href="#/articles/{{article.slug}}">…</a></div>
 	</article>
 </div>
-<footer class="footer">
-	<p>Open <a href="{{FBURL}}">Forge</a></p>
-</footer>
+<div ng-hide="articles" class="site-content home">
+	Lade Artikel…
+</div>

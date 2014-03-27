@@ -12,6 +12,7 @@ angular.module('Blog.directive.navigation', [])
     },{
       name: "Erstellen",
       link: "/create"
+      // attr: 'ng-show-auth="login"'
     },{
       name: "Login",
       link: "/login",
@@ -35,7 +36,3 @@ angular.module('Blog.directive.navigation', [])
       }
     }
   });
-
-
-
-// <li><a href="#{{entry.link}}">{{entry.name}}</a></li>

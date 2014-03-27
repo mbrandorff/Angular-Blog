@@ -1,0 +1,32 @@
+.article-heading {
+	margin-bottom: 0;
+}
+
+.article-author {
+	margin-bottom: 1.2em;
+
+	font-size: 0.9em;
+	color: rgba(0, 0, 0, 0.6);
+	font-style: italic;
+}
+
+.article-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.commentform, .commentform-preview {
+	width: 48%;
+	float: left;
+	margin: 0 1%;
+}
+.commentform-content {
+	width: 100%;
+}
+.commentform-preview {
+	float: right;
+}
+.commentform-submit {
+	display: block;
+}

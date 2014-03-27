@@ -1,0 +1,31 @@
+// Micro-Clearfix
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  *zoom: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.text--big {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.text--italic {
+  font-style: italic;
+}
+
+.good {
+  color: green;
+}
+.error {
+  color: red;
+}

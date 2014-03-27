@@ -22,11 +22,19 @@ angular.module('Blog.controller.HomeCtrl', [])
       $scope.articles = snapshot.val();
 
       for(var article in $scope.articles){
-        var preview = $scope.articles[article].content.match(/<p>[\s\S]+<\/p>/).toString();
-        console.log(preview);
+        var input = $scope.articles[article].input;
+        markdownHtml(input, "html");
+        var html = (output) ? output : '';
+        var preview = html.match(/<p>[\s\S]+<\/p>/);
 
-        $scope.articles[article].preview = (preview) ? $sce.trustAsHtml(preview) : '';
-        console.log($scope.articles[article].title);
+        if(preview != null) {
+          preview = preview.toString();
+          $scope.articles[article].preview = $sce.trustAsHtml(preview);
+        }
+        else {
+          preview = '<span class="text--italic">Ein Beitrag von ' + $scope.articles[article].author + '.';
+          $scope.articles[article].preview = $sce.trustAsHtml(preview);
+        }
       }
 
       $scope.$apply();
@@ -34,10 +42,5 @@ angular.module('Blog.controller.HomeCtrl', [])
   }
   
   getArticles();
-
-  $scope.$watch('markdown.input', function(data){
-    markdownHtml(data, "html");
-    $scope.safeHtml = (output) ? $sce.trustAsHtml(output) : '';
-  })
   
 }]);

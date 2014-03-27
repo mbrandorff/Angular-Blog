@@ -1,0 +1,32 @@
+hr {
+  height: 1px;
+  margin: 2em 0;
+
+  border: none;
+  
+  background-color: $lightgrey;
+
+  text-align: center;
+  line-height: 1px;
+  font-size: 1.5em;
+
+  &:after {
+    content: "§";
+    display: inline;
+    padding: .2em .5em;
+
+    border: 1px solid $bg;
+    border-radius: 100px;
+
+    background-color: #fff;
+
+    color: $lightgrey;
+
+    transition: .3s ease all;
+  }
+  &:hover {
+    &:after {
+      border: 1px solid $lightgrey;
+    }
+  }
+}

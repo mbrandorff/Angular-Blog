@@ -1,0 +1,18 @@
+.menu {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0 0 0.5em;
+}
+
+.menu > li {
+  display: inline-block;
+  padding: 0 1em;
+}
+
+.menu > li:first-child {
+  padding-left: 0;
+}
+
+.menu > li.hide {
+   display: none;
+}

@@ -1,9 +1,12 @@
-<h2>Artikel erstellen</h2>
-<div class="editor">
+<div class="site-content editor">
+	<h2>Artikel erstellen</h2>
 	<form name="form" class="markdown-raw" ng-submit="submit()">
 		<input ng-model="article.title" type="text" placeholder="Title" required/>
 		<textarea ng-model="article.input" placeholder="Blog Entry" required></textarea>
-		<input type="submit" ng-disabled="form.$invalid">
+		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Artikel zu erstellen.</div>
+		<input type="submit" value="Speichern" ng-disabled="!auth.user.id || form.$invalid">
+		<p ng-show="processing">Bitte warten…</p>
+		<p ng-show="err" class="error">{{err}}</p>
 	</form>
 
 	<div class="markdown-preview">

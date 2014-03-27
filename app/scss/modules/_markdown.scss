@@ -1,0 +1,25 @@
+.markdown-raw {
+  
+}
+.markdown-raw input, .markdown-raw textarea, .markdown-raw div {
+  width: 100%;
+  margin: 0 0 1%;
+}
+.markdown-raw textarea {
+  min-height: 300px;
+}
+
+.markdown-preview {
+  min-height: 300px;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+.markdown-preview .title {
+  margin: 0;
+  padding: 1em 0;
+
+  font-style: italic;
+}
+.markdown-preview .content {
+  
+}

@@ -9,8 +9,10 @@ angular.module('Blog',[
       'Blog.controller.LoginCtrl',
       'Blog.controller.AccountCtrl',
       'Blog.controller.ViewCtrl',
+      'Blog.controller.ArticleCtrl',
       'Blog.controller.CreateCtrl',
       'Blog.controller.EditCtrl',
+      'Blog.controller.404Ctrl',
 
       'Blog.directive.appVersion',
       'Blog.directive.navigation',
@@ -42,3 +44,6 @@ angular.module('Blog',[
          $rootScope.FBURL = FBURL;
       }
    }]);
+
+// Non-Angular Stuff
+
