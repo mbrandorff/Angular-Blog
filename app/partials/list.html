@@ -1,3 +1,6 @@
-<div class="site-content article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true">
-	<h3><a href="#/articles/{{ article.slug }}">{{ article.title }}</a></h3>
+<div class="site-content articles">
+	<h2>Artikel</h2>
+	<div class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true">
+		<h3><a href="#/artikel/{{ article.slug }}">{{ article.title }}</a></h3>
+	</div>
 </div>

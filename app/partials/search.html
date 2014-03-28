@@ -1,0 +1,6 @@
+<div class="site-content results">
+	<h2>Suchergebnisse</h2>
+	<div class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | filter:searchterm">
+		<h3><a href="#/artikel/{{ article.slug }}">{{ article.title }}</a></h3>
+	</div>
+</div>

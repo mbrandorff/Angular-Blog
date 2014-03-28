@@ -1,13 +1,13 @@
 .article-heading {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-.article-author {
-	margin-bottom: 1.2em;
+.article-info {
+  margin-bottom: 1.2em;
 
-	font-size: 0.9em;
-	color: rgba(0, 0, 0, 0.6);
-	font-style: italic;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
 }
 
 .article-controls {
@@ -17,16 +17,16 @@
 }
 
 .commentform, .commentform-preview {
-	width: 48%;
-	float: left;
-	margin: 0 1%;
+  width: 48%;
+  float: left;
+  margin: 0 1%;
 }
 .commentform-content {
-	width: 100%;
+  width: 100%;
 }
 .commentform-preview {
-	float: right;
+  float: right;
 }
 .commentform-submit {
-	display: block;
+  display: block;
 }

@@ -532,10 +532,16 @@ video {
 
 .site-header {
   width: 100%;
-  padding: 1px 15%;
   margin: 0 auto 1em;
+  padding: 1px 0;
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 980px) {
+  .site-header {
+    padding: 1px 15%;
+  }
 }
 
 .menu {
@@ -557,11 +563,31 @@ video {
   display: none;
 }
 
+.site-content {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 980px) {
+  .site-content {
+    width: 70%;
+  }
+}
+
+.footer {
+  width: 100%;
+}
+
 .article-heading {
   margin-bottom: 0;
 }
 
-.article-author {
+.article-info {
   margin-bottom: 1.2em;
   font-size: 0.9em;
   color: rgba(0, 0, 0, 0.6);
@@ -593,16 +619,6 @@ video {
   display: block;
 }
 
-.site-content {
-  position: relative;
-  width: 70%;
-  margin: 0 auto;
-  padding: 1em;
-  margin-bottom: 1em;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-}
-
 .markdown-raw input,
 .markdown-raw textarea,
 .markdown-raw div {
@@ -612,6 +628,12 @@ video {
 
 .markdown-raw textarea {
   min-height: 300px;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.markdown-raw select {
+  margin: 0 0 1%;
 }
 
 .markdown-preview {
@@ -624,10 +646,6 @@ video {
   margin: 0;
   padding: 1em 0;
   font-style: italic;
-}
-
-.footer {
-  width: 100%;
 }
 
 hr {

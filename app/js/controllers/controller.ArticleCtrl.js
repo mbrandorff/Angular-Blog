@@ -41,6 +41,19 @@ angular.module('Blog.controller.ArticleCtrl', [])
         var html = (output) ? output : '';
         // make it trusted with $sce
         $scope.currentArticle.safeHtml = $sce.trustAsHtml(html);
+
+        // Kategorie
+        switch($scope.currentArticle.category){
+          case "blog-dev":
+            $scope.category = "Blogentwicklung";
+            break;
+          case "random-thoughts":
+            $scope.category = "Random Thoughts";
+            break;
+          case "web-design":
+            $scope.category = "Web Design";
+            break;
+        }
       }
       else {
         $location.path("/404");

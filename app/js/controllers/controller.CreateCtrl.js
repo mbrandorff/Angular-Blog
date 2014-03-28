@@ -47,7 +47,6 @@ angular.module('Blog.controller.CreateCtrl', [])
     markdownHtml(data, "html");
     $scope.preview = (output) ? $sce.trustAsHtml(output) : '';
   })
-
   
   $scope.submit = function() {
 
@@ -72,7 +71,7 @@ angular.module('Blog.controller.CreateCtrl', [])
             else {
               console.log($scope.article.slug);
               $scope.$apply(function(){
-                $location.path("/articles/" + $scope.article.slug);
+                $location.path("/artikel/" + $scope.article.slug);
               });
             }
           });

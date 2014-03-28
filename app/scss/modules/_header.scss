@@ -1,9 +1,13 @@
 .site-header {
   width: 100%;
-  padding: 1px 15%;
   margin: 0 auto 1em;
+  padding: 1px 0;
 
   background-color: rgba(255, 255, 255, 0.8);
 
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
+  @include bp(mama-bear) {
+    padding: 1px 15%;
+  }
 }

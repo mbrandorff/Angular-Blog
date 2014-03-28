@@ -65,9 +65,11 @@
             'js/controllers/controller.LoginCtrl.js',
             'js/controllers/controller.AccountCtrl.js',
             'js/controllers/controller.ViewCtrl.js',
+            'js/controllers/controller.CategoriesCtrl.js',
             'js/controllers/controller.ArticleCtrl.js',
             'js/controllers/controller.CreateCtrl.js',
             'js/controllers/controller.EditCtrl.js',
+            'js/controllers/controller.SearchCtrl.js',
             'js/controllers/controller.404Ctrl.js',
 
             'js/directives/directive.appVersion.js',
@@ -81,6 +83,7 @@
             'js/services/service.object2Array.js',
             'js/services/service.date.js',
             'js/services/service.checkIfArticleExists.js',
+            'js/services/service.search.js',
             
             'js/module.routeSecurity.js',
             'js/module.waitForAuth.js',
@@ -99,6 +102,10 @@
   <div class="site">
     <header class="site-header" ng-controller="HeaderCtrl">
       <h1>Blog &dash; Michael Brandorff</h1>
+      <form ng-submit="search()">
+        <input type="text" ng-model="searchterm">
+        <input type="submit" value="Suchen">
+      </form>
       <ul class="menu" navigation></ul>
     </header>
 

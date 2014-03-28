@@ -1,11 +1,15 @@
-$barTransition: .3s;
-
+// Colors
+// hr
 $bg: transparent;
 $pink: #F84BA2;
 $grey: #3A4145;
 $lightgrey: #bbb;
 
+// Media Queries
+$MQs: true;
+
 // Base
+@import "mixins";
 @import "../libs/normalize-scss/normalize";
 @import "base";
 
@@ -15,12 +19,13 @@ $lightgrey: #bbb;
 // Modules
 @import "modules/header";
 @import "modules/menu";
+@import "modules/content";
+@import "modules/footer";
 
 @import "modules/article";
-@import "modules/content";
+@import "modules/categories";
 @import "modules/markdown";
 
-@import "modules/footer";
 
 @import "modules/hr";
 @import "modules/404";

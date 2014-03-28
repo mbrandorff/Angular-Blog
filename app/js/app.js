@@ -9,9 +9,11 @@ angular.module('Blog',[
       'Blog.controller.LoginCtrl',
       'Blog.controller.AccountCtrl',
       'Blog.controller.ViewCtrl',
+      'Blog.controller.CategoriesCtrl',
       'Blog.controller.ArticleCtrl',
       'Blog.controller.CreateCtrl',
       'Blog.controller.EditCtrl',
+      'Blog.controller.SearchCtrl',
       'Blog.controller.404Ctrl',
 
       'Blog.directive.appVersion',
@@ -25,6 +27,7 @@ angular.module('Blog',[
       'Blog.service.object2Array',
       'Blog.service.date',
       'Blog.service.checkIfArticleExists',
+      'Blog.service.search',
 
       'waitForAuth',
       'routeSecurity'

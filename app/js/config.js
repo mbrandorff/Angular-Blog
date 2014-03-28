@@ -26,24 +26,29 @@ angular.module('Blog.config', ['ngRoute'])
          controller: 'HomeCtrl'
       });
 
-      $routeProvider.when('/create', {
+      $routeProvider.when('/erstellen', {
          templateUrl: 'partials/create.html',
          controller: 'CreateCtrl'
       });
 
-      $routeProvider.when('/articles', {
+      $routeProvider.when('/artikel', {
          templateUrl: 'partials/list.html',
          controller: 'ViewCtrl'
       });
-      $routeProvider.when('/articles/:slug', {
+      $routeProvider.when('/artikel/:slug', {
          templateUrl: 'partials/view.html',
          controller: 'ArticleCtrl'
       });
 
-      $routeProvider.when('/edit', {
+      $routeProvider.when('/kategorien', {
+         templateUrl: 'partials/categories.html',
+         controller: 'CategoriesCtrl'
+      });
+
+      $routeProvider.when('/bearbeiten', {
          redirectTo: '/articles'
       });
-      $routeProvider.when('/edit/:slug', {
+      $routeProvider.when('/bearbeiten/:slug', {
          templateUrl: 'partials/edit.html',
          controller: 'EditCtrl'
       });
@@ -57,6 +62,11 @@ angular.module('Blog.config', ['ngRoute'])
       $routeProvider.when('/login', {
          templateUrl: 'partials/login.html',
          controller: 'LoginCtrl'
+      });
+
+      $routeProvider.when('/suche', {
+         templateUrl: 'partials/search.html',
+         controller: 'SearchCtrl'
       });
 
       $routeProvider.when('/404', {

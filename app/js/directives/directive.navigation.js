@@ -8,10 +8,13 @@ angular.module('Blog.directive.navigation', [])
       link: "/"
     },{
       name: "Artikel",
-      link: "/articles"
+      link: "/artikel"
+    },{
+      name: "Kategorien",
+      link: "/kategorien"
     },{
       name: "Erstellen",
-      link: "/create"
+      link: "/erstellen"
       // attr: 'ng-show-auth="login"'
     },{
       name: "Login",

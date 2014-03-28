@@ -81,7 +81,7 @@ angular.module('Blog.controller.EditCtrl', [])
           }
           else {
             $scope.$apply(function(){
-              $location.path("/articles/" + $scope.article.slug);
+              $location.path("/artikel/" + $scope.article.slug);
             });
           }
         });
