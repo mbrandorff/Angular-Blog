@@ -15,20 +15,6 @@ angular.module('Blog.controller.CreateCtrl', [])
   var articlesRef = new Firebase(FBURL + '/articles');
   var usersRef = new Firebase(FBURL + '/users');
 
-  var camelCase = function(string) {
-    string = string.replace( /\s([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /-([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /^([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /\./g, "");
-    return string;
-  }
-
   var slugify = function(string) {
     string = string.replace( /\s/ig, "-");
     string = string.replace( /([a-z])/ig, function (all, letter) {
@@ -50,8 +36,8 @@ angular.module('Blog.controller.CreateCtrl', [])
   
   $scope.submit = function() {
 
-    var name = camelCase($scope.article.title);
     $scope.article.slug = slugify($scope.article.title);
+    var name = $scope.article.slug;
     $scope.article.id = ($scope.auth.user) ? $scope.auth.user.id : null;
     $scope.article.uid = ($scope.auth.user) ? $scope.auth.user.uid : null;
 

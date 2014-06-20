@@ -5,18 +5,6 @@ angular.module('Blog.controller.HomeCtrl', [])
 
   var dataRef = firebaseRef('articles');
 
-  var camelCase = function(string) {
-    var result = string.replace( /-([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-
-    result = result.replace( /^([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-
-    return result;
-  }
-
   var getArticles = function() {
     dataRef.once('value', function(snapshot) {
       $scope.articles = snapshot.val();
@@ -25,7 +13,8 @@ angular.module('Blog.controller.HomeCtrl', [])
         var input = $scope.articles[article].input;
         markdownHtml(input, "html");
         var html = (output) ? output : '';
-        var preview = html.match(/<p>[\s\S]+<\/p>/);
+        var preview = html.match(/^.{0,249}[^!?.]*..*/m);
+        console.log(preview);
 
         if(preview != null) {
           preview = preview.toString();

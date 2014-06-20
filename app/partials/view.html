@@ -8,7 +8,7 @@
 
 	<div class="article-controls" ng-show="currentArticle.id == auth.user.id">
 		<a href="#/bearbeiten/{{ currentArticle.slug }}">bearbeiten</a>
-		<a href="#/" ng-click="deleteArticle(currentArticle.title)">l&ouml;schen</a>
+		<a href="#/" ng-click="deleteArticle(currentArticle.slug)">l&ouml;schen</a>
 	</div>
 </article>
 <div ng-show="currentArticle" class="site-content article-comments cf">

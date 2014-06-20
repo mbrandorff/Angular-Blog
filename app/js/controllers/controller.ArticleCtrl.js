@@ -12,21 +12,8 @@ angular.module('Blog.controller.ArticleCtrl', [])
   function($scope, $routeParams, $location, firebaseRef, $sce, markdownHtml, syncData) {
 
   // Variablen
-  var camelCase = function(string) {
-    string = string.replace( /\s([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /-([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /^([a-z])/ig, function( all, letter ) {
-      return letter.toUpperCase();
-    });
-    string = string.replace( /\./g, "");
-    return string;
-  }
   $scope.slug = $routeParams.slug;
-  var name = ($scope.slug) ? camelCase($scope.slug) : 'undefined';
+  var name = ($scope.slug) ? $scope.slug : 'undefined';
   var dataRef = firebaseRef('articles/' + name);
   var userRef = firebaseRef('users');
 
@@ -44,8 +31,8 @@ angular.module('Blog.controller.ArticleCtrl', [])
 
         // Kategorie
         switch($scope.currentArticle.category){
-          case "blog-dev":
-            $scope.category = "Blogentwicklung";
+          case "website":
+            $scope.category = "Website- und Blogentwicklung";
             break;
           case "random-thoughts":
             $scope.category = "Random Thoughts";
@@ -54,9 +41,6 @@ angular.module('Blog.controller.ArticleCtrl', [])
             $scope.category = "Web Design";
             break;
         }
-      }
-      else {
-        $location.path("/404");
       }
       $scope.$apply();
     });
@@ -146,7 +130,7 @@ angular.module('Blog.controller.ArticleCtrl', [])
 
   // Löschen
   $scope.deleteArticle = function(article) {
-    var child = camelCase(article);
+    var child = article;
 
     var x = confirm('Artikel wirklich löschen?');
 
