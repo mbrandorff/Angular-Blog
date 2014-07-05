@@ -1,6 +1,9 @@
 hr {
+  position: relative;
+  left: -1em;
   height: 1px;
   margin: 2em 0;
+  width: calc(100% + 2em);
 
   border: none;
   
@@ -8,7 +11,7 @@ hr {
 
   text-align: center;
   line-height: 1px;
-  font-size: 1.5em;
+  font-size: 1rem;
 
   &:after {
     content: "§";

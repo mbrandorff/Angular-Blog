@@ -1,4 +1,4 @@
-<div class="site-content login">
+<div class="login">
     <h2>Login Page</h2>
     <form>
         <label>
@@ -19,6 +19,6 @@
         <button ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
 
         <p ng-show="err" class="error">{{err}}</p>
-        <p ng-show="processing">Bitte warten…</p>
+        <div ng-show="processing" class="loading"></div>
     </form>
 </div>

@@ -1,10 +1,8 @@
-<div ng-show="articles" class="site-content home">
-	<article class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | limitTo:5">
-		<h2><a href="#/artikel/{{article.slug}}">{{article.title}}</a></h2>
+<div class="home">
+	<article ng-show="articles" class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | limitTo:5">
+		<h2 class="article-preview-heading"><a href="#/artikel/{{article.slug}}">{{article.title}}</a></h2>
 		<div ng-bind-html="article.preview"></div>
 		<div class="text--big"><a href="#/artikel/{{article.slug}}">…</a></div>
 	</article>
-</div>
-<div ng-hide="articles" class="site-content home">
-	Lade Artikel…
+	<div ng-hide="articles" class="loading"></div>
 </div>

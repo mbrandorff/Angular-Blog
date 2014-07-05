@@ -1,9 +1,8 @@
-<article ng-show="currentArticle" class="site-content article cf">
+<article ng-show="currentArticle" class="article">
 	<h1 class="article-heading">{{ currentArticle.title }}</h1>
 	<span class="article-info">Erstellt: {{ currentArticle.created }}</span>
 	<span class="article-info" ng-show="currentArticle.edited">Letztes Update: {{ currentArticle.edited }}</span><br>
 	<span class="article-info">Autor: {{ currentArticle.author }}</span><br>
-	<span class="article-info">Kategorie: {{ category }}</span>
 	<div class="content" ng-bind-html="currentArticle.safeHtml"></div>
 
 	<div class="article-controls" ng-show="currentArticle.id == auth.user.id">
@@ -11,7 +10,10 @@
 		<a href="#/" ng-click="deleteArticle(currentArticle.slug)">l&ouml;schen</a>
 	</div>
 </article>
-<div ng-show="currentArticle" class="site-content article-comments cf">
+
+<div ng-hide="currentArticle" class="loading"></div>
+
+<div ng-show="currentArticle" class="article-comments cf">
 	<!-- KOMMENTARE -->
 	<h2>Kommentare</h2>
 	<ul ng-show="comments">
@@ -19,16 +21,14 @@
 			<div ng-bind-html="comment.content"></div>
 			<div class="article-comments-controls">
 				<button type="button" ng-click="deleteComment(comment)">X</button>
+				<span ng-hide="processing != comment.name" class="loading loading--inline"></span>
 			</div>
 		</li>
 	</ul>
 	<form class="commentform" ng-submit="addComment()" name="commentform" id="commentform">
 		<textarea class="commentform-content" ng-model="newComment.input" name="commentfield" id="commentfield" cols="30" rows="10" required></textarea>
-		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid">
+		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid"><span ng-hide="processing != 'add'" class="loading loading--inline"></span>
 		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Kommentar zu schreiben.</div>
 	</form>
 	<div class="commentform-preview" ng-bind-html="preview"></div>
-</div>
-<div ng-hide="currentArticle" class="site-content article">
-	Bitte warten…
 </div>

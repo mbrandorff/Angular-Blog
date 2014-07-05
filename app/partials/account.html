@@ -1,6 +1,6 @@
-<div class="site-content account">
-    <h2>Account</h2>
-    <form>
+<div class="account">
+    <h2 ng-show="user">Account</h2>
+    <form ng-show="user">
         <fieldset>
             <legend>Profile</legend>
 
@@ -39,5 +39,6 @@
             <p class="good" ng-show="msg">{{msg}}</p>
         </fieldset>
     </form>
-    <button ng-click="logout()">Log Out</button>
+    <button ng-show="user" ng-click="logout()">Log Out</button>
+    <div ng-hide="user" class="loading"></div>
 </div>

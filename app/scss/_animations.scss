@@ -1,9 +1,41 @@
 @keyframes in {
-   0% { opacity: 0 }
- 100% { opacity: 1 }
+	0% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		left: 0;
+	}
 }
 
 @keyframes out {
-   0% { opacity: 1 }
- 100% { opacity: 0 }
+	0% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		left: 0;
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+
+.site-view.ng-enter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 100% 0;
+	animation: in 1s ease;
+	z-index: 800;
+}
+
+.site-view.ng-leave {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 100% 0;
+	animation: out 1s ease;
+	z-index: 700;
 }

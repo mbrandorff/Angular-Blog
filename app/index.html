@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     [ng-cloak] {
-      display: none;
+      display: none !important;
     }
   </style>
   <title>Blog – Michael Brandorff</title>
@@ -38,13 +38,13 @@
         // CDN
         // 'https://cdn.firebase.com/v0/firebase.js',
         // 'https://cdn.firebase.com/v0/firebase-simple-login.js',
-        // 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js',
+        'https://code.angularjs.org/1.2.19/angular.min.js',
         // 'http://code.jquery.com/jquery-1.11.0.min.js',
 
         // Local
         'libs/firebase.js',
-        'libs/firebase-simple-login.js',
-        'libs/angular.min.js'
+        'libs/firebase-simple-login.js'
+        //'libs/angular.min.js'
         // 'libs/jquery/dist/jquery.min.js'
         
     ], function() {
@@ -52,6 +52,7 @@
             // CDN
             // 'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js',
             // 'https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js',
+            'https://code.angularjs.org/1.2.19/angular-animate.min.js',
 
             // Local
             'libs/angular-route.min.js',
@@ -65,7 +66,6 @@
             'js/controllers/controller.LoginCtrl.js',
             'js/controllers/controller.AccountCtrl.js',
             'js/controllers/controller.ViewCtrl.js',
-            'js/controllers/controller.CategoriesCtrl.js',
             'js/controllers/controller.ArticleCtrl.js',
             'js/controllers/controller.CreateCtrl.js',
             'js/controllers/controller.EditCtrl.js',
@@ -97,7 +97,7 @@
   </script>
 
 </head>
-<body ng-cloak-auth class="hide">
+<body>
 
   <div class="site">
     <header class="site-header" ng-controller="HeaderCtrl">
@@ -106,14 +106,19 @@
         <input type="text" ng-model="searchterm">
         <input type="submit" value="Suchen">
       </form>
-      <ul class="menu" navigation></ul>
+      <ul class="menu">
+        <li><a href="#/">Startseite</a></li>
+        <li><a href="#/archiv">Archiv</a></li>
+        <li ng-cloak ng-show-auth="logout,error"><a href="#/login">Login/Registrierung</a></li>
+        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 1"><a href="#/erstellen">Artikel erstellen</a></li>
+        <li ng-cloak ng-show-auth="login"><a href="#/account">Account</a></li>
+        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 1"><a href="{{FBURL}}">Forge</a></li>
+      </ul>
     </header>
 
-    <div class="cf" ng-view></div>
-
-    <footer class="footer">
-      <p>Open <a href="{{FBURL}}">Forge</a></p>
-    </footer>
+    <div class="site-content">
+      <div ng-view class="site-view"></div>
+    </div>
   </div>
 </body>
 </html>

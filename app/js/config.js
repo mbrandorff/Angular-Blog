@@ -31,8 +31,8 @@ angular.module('Blog.config', ['ngRoute'])
          controller: 'CreateCtrl'
       });
 
-      $routeProvider.when('/artikel', {
-         templateUrl: 'partials/list.html',
+      $routeProvider.when('/archiv', {
+         templateUrl: 'partials/archive.html',
          controller: 'ViewCtrl'
       });
       $routeProvider.when('/artikel/:slug', {

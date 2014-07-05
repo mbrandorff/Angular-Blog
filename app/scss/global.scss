@@ -1,12 +1,17 @@
 // Colors
 // hr
 $bg: transparent;
+
 $pink: #F84BA2;
 $grey: #3A4145;
 $lightgrey: #bbb;
 
-// Media Queries
-$MQs: true;
+$lila: #da2e75;
+$blue: #3372df;
+$red: #cb4437;
+$bluegreen: #09829a;
+$yellow: #ffd45b;
+
 
 // Base
 @import "mixins";
@@ -23,10 +28,10 @@ $MQs: true;
 @import "modules/footer";
 
 @import "modules/article";
-@import "modules/categories";
+@import "modules/archive";
 @import "modules/markdown";
 
-
+@import "modules/loading";
 @import "modules/hr";
 @import "modules/404";
 

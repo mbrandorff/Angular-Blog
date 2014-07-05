@@ -1,18 +1,23 @@
 .menu {
-  list-style: none;
-  margin-bottom: 0;
-  padding: 0 0 0.5em;
+	display: inline-block;
+	list-style: none;
+	margin-bottom: 0;
+	padding: 0;
 }
 
 .menu > li {
-  display: inline-block;
-  padding: 0 1em;
+	display: inline-block;
+	padding: 0.5em 0;
 }
-
-.menu > li:first-child {
-  padding-left: 0;
+@include at-least(980px) {
+	.menu {
+		display: block;
+	}
+	.menu > li {
+		display: block;
+	}
 }
 
 .menu > li.hide {
-   display: none;
+	display: none;
 }

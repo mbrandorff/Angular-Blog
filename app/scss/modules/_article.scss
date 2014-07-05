@@ -1,5 +1,6 @@
 .article-heading {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .article-info {
@@ -28,5 +29,10 @@
   float: right;
 }
 .commentform-submit {
-  display: block;
+  display: inline-block;
+}
+
+.article-preview-heading {
+  font-size: 3em;
+  margin: 0;
 }

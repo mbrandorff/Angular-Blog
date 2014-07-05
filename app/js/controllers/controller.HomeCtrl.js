@@ -14,7 +14,6 @@ angular.module('Blog.controller.HomeCtrl', [])
         markdownHtml(input, "html");
         var html = (output) ? output : '';
         var preview = html.match(/^.{0,249}[^!?.]*..*/m);
-        console.log(preview);
 
         if(preview != null) {
           preview = preview.toString();

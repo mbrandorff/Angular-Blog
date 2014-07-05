@@ -1,17 +1,11 @@
-@mixin bp($point) {
-  @if ($MQs) {
-    $bp-babybear: "(min-width: 600px)";
-    $bp-mamabear: "(min-width: 980px)";
-    $bp-papabear: "(min-width: 1200px)";
-  
-    @if $point == papa-bear {
-      @media #{$bp-papabear} { @content; }
-    }
-    @else if $point == mama-bear {
-      @media #{$bp-mamabear} { @content; }
-    }
-    @else if $point == baby-bear {
-      @media #{$bp-babybear}  { @content; }
-    }
+@mixin at-least($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content 
+  }
+}
+
+@mixin until($device-width) {
+  @media screen and (max-width: $device-width - 1) {
+    @content 
   }
 }

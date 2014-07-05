@@ -1,13 +1,7 @@
-<div class="site-content editor">
+<div class="editor">
 	<h2>Artikel erstellen</h2>
 	<form name="form" class="markdown-raw" ng-submit="submit()">
 		<input ng-model="article.title" type="text" placeholder="Title" required/>
-		<select name="category" ng-model="article.category" required>
-			<option value="random-thoughts">Random Thoughts</option>
-			<option value="web-design">Web Design</option>
-			<option value="website">Website- und Blogentwicklung</option>
-		</select>
-		<label for="category">Artikelkategorie</label>
 		<textarea ng-model="article.input" placeholder="Blog Entry" required></textarea>
 		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Artikel zu erstellen.</div>
 		<input type="submit" value="Speichern" ng-disabled="!auth.user.id || form.$invalid">

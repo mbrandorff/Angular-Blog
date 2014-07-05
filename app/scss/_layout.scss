@@ -1,0 +1,45 @@
+.site {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.site-header {
+	position: relative;
+	z-index: 1000;
+	padding: 1em;
+	flex: auto 0 0;
+
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.site-content {
+	position: relative;
+	overflow-x: hidden;
+	flex: 1;
+}
+
+.site-view {
+	position: relative;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 1em;
+}
+
+@include at-least(980px) {
+	.site {
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-content: stretch;
+		align-items: stretch;
+	}
+	.site-header {
+		flex: 1;
+		min-width: 250px;
+	}
+	.site-content {
+		flex: 4;
+	}
+}

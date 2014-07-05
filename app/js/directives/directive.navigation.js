@@ -7,17 +7,14 @@ angular.module('Blog.directive.navigation', [])
       name: "Home",
       link: "/"
     },{
-      name: "Artikel",
-      link: "/artikel"
-    },{
-      name: "Kategorien",
-      link: "/kategorien"
+      name: "Archiv",
+      link: "/archiv"
     },{
       name: "Erstellen",
-      link: "/erstellen"
-      // attr: 'ng-show-auth="login"'
+      link: "/erstellen",
+      attr: 'ng-show-auth="login"'
     },{
-      name: "Login",
+      name: "Login/Registrieren",
       link: "/login",
       attr: 'ng-show-auth="logout,error"'
     },{

@@ -1,0 +1,8 @@
+<div class="archive">
+	<h2 ng-show="articles">Archiv</h2>
+	<div ng-show="articles" class="archive-article" ng-repeat="article in articles | object2Array | orderBy:'date':true">
+		<h3><a href="#/artikel/{{ article.slug }}">{{ article.title }}</a></h3>
+		<p class="archive-article-date">Erstellt am: <span>{{ article.created }}</span></p>
+	</div>
+	<div ng-hide="articles" class="loading"></div>
+</div>

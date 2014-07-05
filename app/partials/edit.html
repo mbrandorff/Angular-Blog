@@ -1,14 +1,14 @@
-<div class="site-content editor">
-	<h2>Artikel bearbeiten</h2>
-	<h3>{{ article.title }}</h3>
-	<form name="form" class="markdown-raw" ng-submit="submit()">
+<div class="editor">
+	<h2 ng-show="article.input">Artikel bearbeiten</h2>
+	<h3 ng-show="article.input">{{ article.title }}</h3>
+	<form ng-show="article.input" name="form" class="markdown-raw" ng-submit="submit()">
 		<textarea ng-model="article.input" placeholder="Blog Entry" required></textarea>
 		<input type="submit" value="Speichern" ng-disabled="!auth.user.id || form.$invalid">
-		<p ng-show="processing">Bitte warten…</p>
+		<p ng-show="processing" class="loading"></p>
 		<p ng-show="err" class="error">{{err}}</p>
 	</form>
-
-	<div class="markdown-preview">
+	<div ng-hide="article" class="loading"></div>
+	<div ng-show="article.input" class="markdown-preview">
 		<h1 class="title">{{article.title}}</h1>
 		<div class="content" ng-bind-html="preview"></div>
 	</div>

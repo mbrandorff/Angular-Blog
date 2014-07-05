@@ -28,19 +28,6 @@ angular.module('Blog.controller.ArticleCtrl', [])
         var html = (output) ? output : '';
         // make it trusted with $sce
         $scope.currentArticle.safeHtml = $sce.trustAsHtml(html);
-
-        // Kategorie
-        switch($scope.currentArticle.category){
-          case "website":
-            $scope.category = "Website- und Blogentwicklung";
-            break;
-          case "random-thoughts":
-            $scope.category = "Random Thoughts";
-            break;
-          case "web-design":
-            $scope.category = "Web Design";
-            break;
-        }
       }
       $scope.$apply();
     });
@@ -79,6 +66,8 @@ angular.module('Blog.controller.ArticleCtrl', [])
     $scope.newComment.id = $scope.auth.user.id;
     $scope.newComment.uid = $scope.auth.user.uid;
 
+    $scope.processing = "add";
+
     userRef.child($scope.auth.user.uid).once('value', function(snapshot) {
       $scope.newComment.author = snapshot.val().name;
 
@@ -109,14 +98,14 @@ angular.module('Blog.controller.ArticleCtrl', [])
             })
           });
         }
+        $scope.processing = null;
       })
     })
   }
 
   $scope.deleteComment = function (comment) {
-    delete $scope.currentArticle.comments[comment.name];
-
-    dataRef.child("comments").set($scope.currentArticle.comments, function(error) {
+    $scope.processing = comment.name;
+    dataRef.child("comments").child(comment.name).remove(function(error) {
       if (error) {
         console.log('Deletion failed.');
         console.log(error);
@@ -125,6 +114,7 @@ angular.module('Blog.controller.ArticleCtrl', [])
         console.log('Deletion succeeded.');
         getComments();
       }
+      $scope.processing = null;
     });
   }
 

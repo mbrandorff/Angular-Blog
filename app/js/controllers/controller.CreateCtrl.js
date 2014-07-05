@@ -26,7 +26,7 @@ angular.module('Blog.controller.CreateCtrl', [])
 
 
   $scope.article = {
-    input: "#Schreibe einen Artikel! \n##2. Ordnung \n###3. Ordnung \n####4. Ordnung \n#####5. Ordnung \n######6. Ordnung \n \nNormaler Absatz \n\n* Liste \n* mit \n* *kursiven* \n* und \n* **fetten** \n* Einträgen \n"
+    input: ""
   };
 
   $scope.$watch('article.input', function(data){

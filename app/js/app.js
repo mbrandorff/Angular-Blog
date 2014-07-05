@@ -9,7 +9,6 @@ angular.module('Blog',[
       'Blog.controller.LoginCtrl',
       'Blog.controller.AccountCtrl',
       'Blog.controller.ViewCtrl',
-      'Blog.controller.CategoriesCtrl',
       'Blog.controller.ArticleCtrl',
       'Blog.controller.CreateCtrl',
       'Blog.controller.EditCtrl',
@@ -30,7 +29,8 @@ angular.module('Blog',[
       'Blog.service.search',
 
       'waitForAuth',
-      'routeSecurity'
+      'routeSecurity',
+      'ngAnimate'
    ])
 
    .run(['loginService', '$rootScope', 'FBURL', function(loginService, $rootScope, FBURL) {
