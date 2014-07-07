@@ -36,13 +36,8 @@ angular.module('Blog.config', ['ngRoute'])
          controller: 'ViewCtrl'
       });
       $routeProvider.when('/artikel/:slug', {
-         templateUrl: 'partials/view.html',
+         templateUrl: 'partials/article.html',
          controller: 'ArticleCtrl'
-      });
-
-      $routeProvider.when('/kategorien', {
-         templateUrl: 'partials/categories.html',
-         controller: 'CategoriesCtrl'
       });
 
       $routeProvider.when('/bearbeiten', {

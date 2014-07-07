@@ -1,4 +1,4 @@
-<article ng-show="currentArticle" class="article">
+<article ng-show="currentArticle" class="site-content article">
 	<h1 class="article-heading">{{ currentArticle.title }}</h1>
 	<span class="article-info">Erstellt: {{ currentArticle.created }}</span>
 	<span class="article-info" ng-show="currentArticle.edited">Letztes Update: {{ currentArticle.edited }}</span><br>
@@ -13,21 +13,23 @@
 
 <div ng-hide="currentArticle" class="loading"></div>
 
-<div ng-show="currentArticle" class="article-comments cf">
+<div ng-show="currentArticle" class="site-content article-comments">
 	<!-- KOMMENTARE -->
-	<h2>Kommentare</h2>
-	<ul ng-show="comments">
-		<li ng-repeat="comment in comments">
-			<div ng-bind-html="comment.content"></div>
-			<div class="article-comments-controls">
-				<button type="button" ng-click="deleteComment(comment)">X</button>
+	<h2 class="comments-heading">Kommentare</h2>
+	<ul class="comments" ng-show="comments">
+		<li class="comment" ng-repeat="comment in comments">
+			<div class="comment-content" ng-bind-html="comment.content"></div>
+			<div class="comment-controls">
 				<span ng-hide="processing != comment.name" class="loading loading--inline"></span>
+				<button ng-show="auth.user.id == comment.id || auth.user.id == 1" class="comment-controls-delete" type="button" ng-click="deleteComment(comment)">&otimes;</button>
 			</div>
 		</li>
 	</ul>
+	<h3 class="comments-heading">Kommentieren</h3>
+	<h3 class="comments-heading">Vorschau</h3>
 	<form class="commentform" ng-submit="addComment()" name="commentform" id="commentform">
 		<textarea class="commentform-content" ng-model="newComment.input" name="commentfield" id="commentfield" cols="30" rows="10" required></textarea>
-		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid"><span ng-hide="processing != 'add'" class="loading loading--inline"></span>
+		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid"><span ng-hide="processing != 'add'" class="loading loading--inline loading--white"></span>
 		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Kommentar zu schreiben.</div>
 	</form>
 	<div class="commentform-preview" ng-bind-html="preview"></div>

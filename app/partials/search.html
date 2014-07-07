@@ -1,4 +1,4 @@
-<div class="results">
+<div class="site-content results">
 	<h2 ng-show="articles">Suchergebnisse</h2>
 	<div ng-show="articles" class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | filter:searchterm">
 		<h3><a href="#/artikel/{{ article.slug }}">{{ article.title }}</a></h3>

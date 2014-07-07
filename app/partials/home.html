@@ -1,4 +1,4 @@
-<div class="home">
+<div class="site-content home">
 	<article ng-show="articles" class="article-preview" ng-repeat="article in articles | object2Array | orderBy:'date':true | limitTo:5">
 		<h2 class="article-preview-heading"><a href="#/artikel/{{article.slug}}">{{article.title}}</a></h2>
 		<div ng-bind-html="article.preview"></div>

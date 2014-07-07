@@ -13,7 +13,7 @@
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.site-content {
+.site-main {
 	position: relative;
 	overflow-x: hidden;
 	flex: 1;
@@ -24,7 +24,6 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	padding: 1em;
 }
 
 @include at-least(980px) {
@@ -36,8 +35,8 @@
 		align-items: stretch;
 	}
 	.site-header {
-		flex: 1;
-		min-width: 250px;
+		flex: 300px 0;
+		width: 300px;
 	}
 	.site-content {
 		flex: 4;

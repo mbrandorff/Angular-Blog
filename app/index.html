@@ -44,9 +44,9 @@
         // Local
         'libs/firebase.js',
         'libs/firebase-simple-login.js'
-        //'libs/angular.min.js'
+        // 'libs/angular.min.js'
         // 'libs/jquery/dist/jquery.min.js'
-        
+
     ], function() {
         $script([
             // CDN
@@ -84,10 +84,10 @@
             'js/services/service.date.js',
             'js/services/service.checkIfArticleExists.js',
             'js/services/service.search.js',
-            
+
             'js/module.routeSecurity.js',
             'js/module.waitForAuth.js',
-            
+
             'libs/showdown/showdown.js'
         ], function() {
             // when all is done, execute bootstrap angular application
@@ -116,7 +116,7 @@
       </ul>
     </header>
 
-    <div class="site-content">
+    <div class="site-main">
       <div ng-view class="site-view"></div>
     </div>
   </div>

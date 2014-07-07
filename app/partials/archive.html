@@ -1,4 +1,4 @@
-<div class="archive">
+<div class="site-content archive">
 	<h2 ng-show="articles">Archiv</h2>
 	<div ng-show="articles" class="archive-article" ng-repeat="article in articles | object2Array | orderBy:'date':true">
 		<h3><a href="#/artikel/{{ article.slug }}">{{ article.title }}</a></h3>
