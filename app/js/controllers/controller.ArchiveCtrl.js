@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('Blog.controller.ViewCtrl', [])
-.controller('ViewCtrl', ['$scope', '$routeParams', 'firebaseRef', '$sce', function($scope, $routeParams, firebaseRef, $sce) {
+angular.module('Blog.controller.ArchiveCtrl', [])
+.controller('ArchiveCtrl', ['$scope', '$routeParams', 'firebaseRef', '$sce', function($scope, $routeParams, firebaseRef, $sce) {
 
   var dataRef = firebaseRef('articles');
 
@@ -11,6 +11,6 @@ angular.module('Blog.controller.ViewCtrl', [])
       $scope.$apply();
     });
   };
-  
+
   getArticles();
 }]);

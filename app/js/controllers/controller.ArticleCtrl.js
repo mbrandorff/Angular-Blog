@@ -9,13 +9,20 @@ angular.module('Blog.controller.ArticleCtrl', [])
   '$sce',
   'markdownHtml',
   'syncData',
-  function($scope, $routeParams, $location, firebaseRef, $sce, markdownHtml, syncData) {
+  'waitForAuth',
+  function($scope, $routeParams, $location, firebaseRef, $sce, markdownHtml, syncData, waitForAuth) {
 
   // Variablen
   $scope.slug = $routeParams.slug;
   var name = ($scope.slug) ? $scope.slug : 'undefined';
   var dataRef = firebaseRef('articles/' + name);
   var userRef = firebaseRef('users');
+
+  waitForAuth.then(function() {
+    if($scope.auth.user) {
+      syncData(['users', $scope.auth.user.uid]).$bind($scope, 'user');
+    }
+  })
 
   // Firebase Daten holen
   function getArticle() {
@@ -63,43 +70,80 @@ angular.module('Blog.controller.ArticleCtrl', [])
     $scope.preview = (output) ? $sce.trustAsHtml(output) : '';
   })
   $scope.addComment = function() {
-    $scope.newComment.id = $scope.auth.user.id;
-    $scope.newComment.uid = $scope.auth.user.uid;
-
     $scope.processing = "add";
 
-    userRef.child($scope.auth.user.uid).once('value', function(snapshot) {
-      $scope.newComment.author = snapshot.val().name;
+    waitForAuth.then(function() {
+      if($scope.auth.user) {
+        $scope.newComment.id = $scope.auth.user.id;
+        $scope.newComment.uid = $scope.auth.user.uid;
 
-      var newRef = dataRef.child("comments").push($scope.newComment, function(err) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          $scope.newComment = {};
+        userRef.child($scope.auth.user.uid).once('value', function(snapshot) {
+          $scope.newComment.author = snapshot.val().name;
 
-          getComments(function() {
-            // Add name to Comments
-            var name = newRef.name();
-            if(typeof($scope.currentArticle.comments === "undefined")) {
-              $scope.currentArticle.comments = {};
+          var newRef = dataRef.child("comments").push($scope.newComment, function(err) {
+            if(err) {
+              console.log(err);
             }
-            $scope.currentArticle.comments[name] = $scope.comments[name];
-            $scope.currentArticle.comments[name].content = null;
-            $scope.currentArticle.comments[name].name = name;
+            else {
+              $scope.newComment = {};
 
-            dataRef.child("comments/" + name).update($scope.currentArticle.comments[name], function(error) {
-              if(error) {
-                console.log(error);
+              getComments(function() {
+                // Add name to Comments
+                var name = newRef.name();
+                if(typeof($scope.currentArticle.comments === "undefined")) {
+                  $scope.currentArticle.comments = {};
+                }
+                $scope.currentArticle.comments[name] = $scope.comments[name];
+                $scope.currentArticle.comments[name].content = null;
+                $scope.currentArticle.comments[name].name = name;
+
+                dataRef.child("comments/" + name).update($scope.currentArticle.comments[name], function(error) {
+                  if(error) {
+                    console.log(error);
+                  }
+                  else {
+                    getComments();
+                  }
+                })
+              });
+            }
+            $scope.processing = null;
+          })
+        })
+      }
+      else {
+        $scope.newComment.author = $scope.user.name;
+
+        var newRef = dataRef.child("comments").push($scope.newComment, function(err) {
+          if(err) {
+            console.log(err);
+          }
+          else {
+            $scope.newComment = {};
+
+            getComments(function() {
+              // Add name to Comments
+              var name = newRef.name();
+              if(typeof($scope.currentArticle.comments === "undefined")) {
+                $scope.currentArticle.comments = {};
               }
-              else {
-                getComments();
-              }
-            })
-          });
-        }
-        $scope.processing = null;
-      })
+              $scope.currentArticle.comments[name] = $scope.comments[name];
+              $scope.currentArticle.comments[name].content = null;
+              $scope.currentArticle.comments[name].name = name;
+
+              dataRef.child("comments/" + name).update($scope.currentArticle.comments[name], function(error) {
+                if(error) {
+                  console.log(error);
+                }
+                else {
+                  getComments();
+                }
+              })
+            });
+          }
+          $scope.processing = null;
+        })
+      }
     })
   }
 

@@ -8,7 +8,7 @@ angular.module('Blog',[
       'Blog.controller.HomeCtrl',
       'Blog.controller.LoginCtrl',
       'Blog.controller.AccountCtrl',
-      'Blog.controller.ViewCtrl',
+      'Blog.controller.ArchiveCtrl',
       'Blog.controller.ArticleCtrl',
       'Blog.controller.CreateCtrl',
       'Blog.controller.EditCtrl',
@@ -49,4 +49,3 @@ angular.module('Blog',[
    }]);
 
 // Non-Angular Stuff
-

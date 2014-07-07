@@ -2,7 +2,7 @@
 // hr
 $bg: transparent;
 
-$grey: #3A4145;
+$grey: #404040;
 $lightgrey: #bbb;
 
 $lila: #da2e75;
@@ -10,6 +10,17 @@ $blue: #3372df;
 $red: #cb4437;
 $bluegreen: #09829a;
 $yellow: #ffd45b;
+
+$link-color: $red;
+$link-color--header: $red;
+
+$header-bg: $grey;
+$header-color: #fff;
+
+$comments-bg: $yellow;
+$comments-color: $grey;
+$comment-bg: #fff;
+$comment-color: $grey;
 
 
 // Base

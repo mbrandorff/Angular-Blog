@@ -29,8 +29,9 @@
 	<h3 class="comments-heading">Vorschau</h3>
 	<form class="commentform" ng-submit="addComment()" name="commentform" id="commentform">
 		<textarea class="commentform-content" ng-model="newComment.input" name="commentfield" id="commentfield" cols="30" rows="10" required></textarea>
-		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="!auth.user.id || commentform.$invalid"><span ng-hide="processing != 'add'" class="loading loading--inline loading--white"></span>
-		<div ng-show="!auth.user.id" class="error">Du musst eingeloggt sein um einen Kommentar zu schreiben.</div>
+		<input type="text" ng-disabled="auth.user" ng-model="user.name" placeholder="Name" required>
+		<input class="commentform-submit" type="submit" value="Senf abgeben" ng-disabled="commentform.$invalid">
+		<span ng-hide="processing != 'add'" class="loading loading--inline"></span>
 	</form>
 	<div class="commentform-preview" ng-bind-html="preview"></div>
 </div>

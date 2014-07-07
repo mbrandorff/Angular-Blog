@@ -33,7 +33,7 @@ angular.module('Blog.config', ['ngRoute'])
 
       $routeProvider.when('/archiv', {
          templateUrl: 'partials/archive.html',
-         controller: 'ViewCtrl'
+         controller: 'ArchiveCtrl'
       });
       $routeProvider.when('/artikel/:slug', {
          templateUrl: 'partials/article.html',

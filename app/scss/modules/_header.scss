@@ -1,8 +1,8 @@
 .site-header {
-  background-color: #eee;
-  background-image: url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/billie_holiday.png');
+  background-color: $header-bg;
 
   h1 {
   	font-size: 1.2em;
+    color: $header-color;
   }
 }
