@@ -417,13 +417,13 @@ th {
 
 ::-moz-selection {
   color: #fff;
-  background: #404040;
+  background: #393939;
   text-shadow: none;
 }
 
 ::selection {
   color: #fff;
-  background: #404040;
+  background: #393939;
   text-shadow: none;
 }
 
@@ -450,7 +450,7 @@ h1 {
 
 a {
   position: relative;
-  color: #cb4437;
+  color: #f8bd01;
   text-decoration: none;
 }
 
@@ -461,7 +461,7 @@ a::before {
   left: 50%;
   width: 0;
   height: 1px;
-  background-color: #cb4437;
+  background-color: #f8bd01;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
@@ -472,10 +472,10 @@ a:hover::before {
 }
 
 .site-header a {
-  color: #cb4437;
+  color: #f8bd01;
 }
 .site-header a::before {
-  background-color: #cb4437;
+  background-color: #f8bd01;
 }
 
 img, canvas, iframe, video {
@@ -522,44 +522,8 @@ img, canvas, iframe, video {
   left: 0;
 }
 
-@media screen and (min-width: 980px) {
-  .site {
-    height: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
-    align-content: stretch;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
-
-  .site-header {
-    -webkit-box-flex: 300px;
-    -webkit-flex: 300px 0;
-    -ms-flex: 300px 0;
-    flex: 300px 0;
-    width: 300px;
-  }
-
-  .site-content {
-    -webkit-box-flex: 4;
-    -webkit-flex: 4;
-    -ms-flex: 4;
-    flex: 4;
-  }
-}
 .site-header {
-  background-color: #404040;
+  background-color: #393939;
 }
 .site-header h1 {
   font-size: 1.2em;
@@ -589,10 +553,6 @@ img, canvas, iframe, video {
 }
 .menu > li.hide {
   display: none;
-}
-
-.site-content {
-  padding: 1em;
 }
 
 .footer {
@@ -690,7 +650,7 @@ img, canvas, iframe, video {
 }
 
 .article-comments {
-  background-color: #ffd45b;
+  background-color: #f8bd01;
 }
 
 .comments {
@@ -699,7 +659,7 @@ img, canvas, iframe, video {
 }
 
 .comments-heading {
-  color: #404040;
+  color: white;
 }
 
 h3.comments-heading {
@@ -714,7 +674,7 @@ h3.comments-heading {
   padding: 0.75em;
   border-left: 0.25em solid #da2e75;
   background-color: white;
-  color: #404040;
+  color: #393939;
 }
 
 .comment-content p:last-child {

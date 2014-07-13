@@ -2,23 +2,26 @@
 // hr
 $bg: transparent;
 
-$grey: #404040;
-$lightgrey: #bbb;
+$grey: #393939;
+$yellow: #F8BD01;
 
 $lila: #da2e75;
 $blue: #3372df;
 $red: #cb4437;
 $bluegreen: #09829a;
-$yellow: #ffd45b;
+$lightgrey: #bbb;
 
-$link-color: $red;
-$link-color--header: $red;
+// Links
+$link-color: $yellow;
+$link-color--header: $yellow;
 
+// Header
 $header-bg: $grey;
 $header-color: #fff;
 
+// Comments
 $comments-bg: $yellow;
-$comments-color: $grey;
+$comments-color: #fff;
 $comment-bg: #fff;
 $comment-color: $grey;
 
