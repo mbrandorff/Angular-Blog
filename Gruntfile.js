@@ -9,9 +9,9 @@ module.exports = function(grunt) {
 		// Project settings
 		yeoman: {
 			// Configurable paths
-			css: 'app/css',
-			scss: 'app/scss',
-			js: 'app/js',
+			css: 'html/css',
+			scss: 'html/scss',
+			js: 'html/js',
 
 			dist: 'dist'
 		},
@@ -27,10 +27,10 @@ module.exports = function(grunt) {
 					livereload: true
 				},
 				files: [
-					'app/*.html',
-					'app/partials/*.html',
+					'html/*.html',
+					'html/partials/*.html',
 					'<%= yeoman.css %>/*.css',
-					'app/images/**/*.{jpg,jpeg,JPG,png,bmp,gif,svg,webp}'
+					'html/images/**/*.{jpg,jpeg,JPG,png,bmp,gif,svg,webp}'
 				]
 			}
 		},

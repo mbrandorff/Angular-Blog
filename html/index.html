@@ -110,9 +110,9 @@
         <li><a href="#/">Startseite</a></li>
         <li><a href="#/archiv">Archiv</a></li>
         <li ng-cloak ng-show-auth="logout,error"><a href="#/login">Login/Registrierung</a></li>
-        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 1"><a href="#/erstellen">Artikel erstellen</a></li>
+        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 'simplelogin:1'"><a href="#/erstellen">Artikel erstellen</a></li>
         <li ng-cloak ng-show-auth="login"><a href="#/account">Account</a></li>
-        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 1"><a href="{{FBURL}}">Forge</a></li>
+        <li ng-cloak ng-show-auth="login" ng-show="auth.user.id == 'simplelogin:1'"><a href="{{FBURL}}">Forge</a></li>
       </ul>
     </header>
 

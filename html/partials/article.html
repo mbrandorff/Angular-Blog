@@ -5,7 +5,7 @@
 	<span class="article-info">Autor: {{ currentArticle.author }}</span><br>
 	<div class="content" ng-bind-html="currentArticle.safeHtml"></div>
 
-	<div class="article-controls" ng-show="currentArticle.id == auth.user.id">
+	<div class="article-controls" ng-show="currentArticle.uid == auth.user.uid">
 		<a href="#/bearbeiten/{{ currentArticle.slug }}">bearbeiten</a>
 		<a href="#/" ng-click="deleteArticle(currentArticle.slug)">l&ouml;schen</a>
 	</div>
@@ -19,10 +19,11 @@
 		<h2 class="comments-heading">Kommentare</h2>
 		<ul class="comments" ng-show="comments">
 			<li class="comment" ng-repeat="comment in comments">
+				<div class="comment-author">geschrieben von: <span ng-bind-html="author"></span></div>
 				<div class="comment-content" ng-bind-html="comment.content"></div>
 				<div class="comment-controls">
-					<span ng-hide="processing != comment.name" class="loading loading--inline"></span>
-					<button ng-show="auth.user.id == comment.id || auth.user.id == 1" class="comment-controls-delete" type="button" ng-click="deleteComment(comment)">&otimes;</button>
+					<span ng-show="processing == comment.name && processing != undefined" class="loading loading--inline"></span>
+					<button ng-show="auth.user.uid == comment.uid && comment.uid != null || auth.user.uid == 'simplelogin:1'" class="comment-controls-delete" type="button" ng-click="deleteComment(comment)">&otimes;</button>
 				</div>
 			</li>
 		</ul>
