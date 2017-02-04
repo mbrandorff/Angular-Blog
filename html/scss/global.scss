@@ -28,7 +28,7 @@ $comment-color: $grey;
 
 // Base
 @import "mixins";
-@import "../libs/normalize-scss/normalize";
+@import "normalize-scss/_normalize.scss";
 @import "base";
 
 // Layout

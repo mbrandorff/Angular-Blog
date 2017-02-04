@@ -35,15 +35,16 @@ module.exports = function(grunt) {
 			}
 		},
 
-		sass: {                             // Task
-			dev: {                            // Target
-				options: {                      // Target options
-					style: 'expanded'
+		sass: {
+			dev: {
+				options: {
+					sourceMap: true,
+					includePaths: ['html/libs']
 				},
 				files: [{
 					expand: true,
 					cwd: '<%= yeoman.scss %>',
-					src: ['*.scss'],
+					src: ['*.{scss,sass}'],
 					dest: '.tmp',
 					ext: '.css'
 				}]
